@@ -5,7 +5,10 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../vendor/autoload.php';
 require_once '../includes/dbOperation.php';
 $app= new \Slim\App(['settings'=>['displayErrorDetails'=>true]]);
-
+$app->get('/test',function(Request $req,Response $res){
+	    $result="it works.app is updated";
+		$res->getBody()->write(json_encode(array($result));
+});
 $app->post('/register',function(Request $req,Response $res)
 {
 	if(isTheseParametersAvailable(array('name','email','phone','password')))
