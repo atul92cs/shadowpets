@@ -209,7 +209,7 @@
 		  return true;
 		return false;
 	}
-	function placeOrder($name,$contact,$cost,$contact,$address)
+	function placeOrder($name,$cost,$contact,$address)
 	{
 		$order_date=date("d-m-Y");
 		$status="placed";
