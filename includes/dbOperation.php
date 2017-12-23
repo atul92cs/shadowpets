@@ -110,9 +110,9 @@
 		while($stmt->fetch())
 		{
 			$temp=array();
-			$temp['trainderId']=$id;
-			$temp['trainderName']=$name;
-			$temp['trainderaAddress']=$address;
+			$temp['trainerId']=$id;
+			$temp['trainerName']=$name;
+			$temp['traineraAddress']=$address;
 			array_push($trainer,$temp);
 		}
 		return $trainer;
