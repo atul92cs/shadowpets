@@ -26,7 +26,7 @@
 	function userLogin($phone,$password)
 	{
 		$pass=md5($password);
-		$stmt=$this->con->prepare("SELECT user_id FROM users WHERE Phone=? and Password=?");
+		$stmt=$this->con->prepare("SELECT user_id FROM users WHERE Phone=? AND Password=?");
 		$stmt->bind_param("ss",$phone,$pass);
 		$stmt->execute();
 		$stmt->store_result();
