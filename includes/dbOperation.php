@@ -165,7 +165,9 @@
 			$temp['spaName']=$name;
 			$temp['spaAddress']=$address;
 			$temp['spaLocation']=$location;
+			array_push($spa,$temp);
 		}
+		return $spa;
 	}
 	function enquireDaycare($name,$contact,$id,$date)
 	{
