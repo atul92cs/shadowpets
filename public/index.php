@@ -98,9 +98,10 @@ $app->post('/register',function(Request $req,Response $res)
 	 if(isTheseParametersAvailable(array('spaId','name','contact','date')))
 	 {
 		 $requestedData=$req->getParsedBody();
+		  $spaid=$requestedData['spaId'];
 		 $name=$requestedData['name'];
 		 $contact=$requestedData['contact'];
-		 $spaid=$requestedData['spaId'];
+		
 		 $date=$requestedData['date'];
 		 $db=new dbOperation();
 		 $responseData=array();
