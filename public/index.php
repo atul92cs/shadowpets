@@ -95,7 +95,7 @@ $app->post('/register',function(Request $req,Response $res)
 	 }
  });
  $app->post('/bookSpa',function(Request $req,Response $res){
-	 if(isTheseParametersAvailable(array('name','contact','spaId','date')))
+	 if(isTheseParametersAvailable(array('spaId','name','contact','date')))
 	 {
 		 $requestedData=$req->getParsedBody();
 		 $name=$requestedData['name'];
