@@ -194,7 +194,7 @@
 		    return true;
 		return false;
 	}
-	function bookVet($vetId,$vetName,$contact,$name,$date)
+	function bookVet($vetId,$vetName,$name,$contact,$date)
 	{
 		$stmt=$this->con->prepare("INSERT INTO vet_booking(vet_id,vet_name,user_name,user_contact,booking_date)VALUES(?,?,?,?,?)");
 		$stmt->bind_param("sssss",$vetId,$vetName,$name,$contact,$date);
