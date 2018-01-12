@@ -181,7 +181,7 @@
 	function enquirePet($title,$message,$contact,$name,$sellerid)
 	{
 		$stmt=$this->con->prepare("INSERT INTO pet_enquiry(enquiry_title,enquiry_message,user_contact,user_name,seller_id)VALUES (?,?,?,?,?)");
-		$stmt->bind_param("sssss",$title,$message,$contact,$name,$sellerId);
+		$stmt->bind_param("sssss",$title,$message,$contact,$name,$sellerid);
 		if($stmt->execute())
 			return true;
 		return false;
