@@ -37,7 +37,7 @@
 	{
 		$pass=md5($password);
 		$stmt=$this->con->prepare("UPDATE users SET Name=?,Email=?,Phone=?,Password=? WHERE id=?");
-		$stmt->bind_param($name,$email,$phone,$pass,$id);
+		$stmt->bind_param("sssss",$name,$email,$phone,$pass,$id);
 		if($stmt->execute())
 			return true;
 		return false;
@@ -172,7 +172,7 @@
 	function enquireDaycare($name,$contact,$id,$date)
 	{
 		$stmt=$this->con->prepare("INSERT INTO daycare_appointmnet(user_name,user_contact,daycare_id,booking_date)VALUES(?,?,?,?)");
-		$stmt->bind_param($name,$contact,$id,$date);
+		$stmt->bind_param("ssss",$name,$contact,$id,$date);
 		if($stmt->execute())
 			return true;
 		return false;
@@ -181,7 +181,7 @@
 	function enquirePet($title,$message,$name,$contact,$sellerid)
 	{
 		$stmt=$this->con->prepare("INSERT INTO pet_enquiry(enquiry_title,enquiry_message,customer_contact,seller_id,user_name)VALUES (?,?,?,?,?)");
-		$stmt->bind_param($title,$message,$contact,$sellerid,$name);
+		$stmt->bind_param("sssss",$title,$message,$contact,$sellerid,$name);
 		if($stmt->execute())
 			return true;
 		return false;
@@ -197,7 +197,7 @@
 	function bookVet($vetId,$contact,$name,$date)
 	{
 		$stmt=$this->con->prepare("INSERT INTO vet_appointment(vet_id,user_contact,user_name,booking_date)VALUES(?,?,?,?)");
-		$stmt->bind_param($vetId,$contact,$name,$date);
+		$stmt->bind_param("ssss",$vetId,$contact,$name,$date);
 		if($stmt->execute())
 			return true;
 		return false;
@@ -206,7 +206,7 @@
 	function bookSpa($name,$contact,$spaId,$date)
 	{
 		$stmt=$this->con->prepare("INSERT INTO spa_appointment(spa_id,user_name,user_contact,booking_date)VALUES(?,?,?,?)");
-		$stmt->bind_param($spaId,$name,$contact,$date);
+		$stmt->bind_param("ssss",$spaId,$name,$contact,$date);
 		if($stmt->execute())
 		  return true;
 		return false;
