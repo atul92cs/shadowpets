@@ -73,12 +73,13 @@ $app->post('/register',function(Request $req,Response $res)
 	 {
 		 $requestedData=$req->getParsedBody();
 		 $vetid=$requestedData['vetId'];
+		 $vetName=$requestedData['vetName'];
 		 $contact=$requestedData['contact'];
 		 $name=$requestedData['name'];
 		 $date=$requestedData['date'];
 		 $db=new dbOperation();
 		 $responseData=array();
-		 $result=$db->bookVet($vetid,$contact,$name,$date);
+		 $result=$db->bookVet($vetid,$vetName,$contact,$name,$date);
 		 if($result==true)
 		 {
 			 $responseData['error']=false;
