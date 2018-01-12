@@ -169,18 +169,18 @@ $app->post('/register',function(Request $req,Response $res)
 	 }
  });
  $app->post('/enquireTrainer',function(Request $req,Response $res){
-	 if(isTheseParametersAvailable(array('trainerId','name','contact','message')))
+	 if(isTheseParametersAvailable(array('name','contact','trainerId','message')))
 	 {
 		 $requestedData=$req->getParsedBody();
-		 $trainerid=$requestedData['trainerId'];
+		
 		 $name=$requestedData['name'];
 		 $contact=$requestedData['contact'];
-		 $message=$requestedData['message'];
 		 $contact=$requestedData['contact'];
+		  $trainerid=$requestedData['trainerId'];
 		 $message=$requestedData['message'];
 		 $db=new dbOperation();
 		 $responseData=array();
-		 $result=$db->enquireTrainer($trainerid,$name,$contact,$message);
+		 $result=$db->enquireTrainer($name,$contact,$trainerid,$message);
 		 if($result=true)
 		 {
 			 $responseData['error']=false;
