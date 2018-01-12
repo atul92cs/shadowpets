@@ -101,7 +101,6 @@ $app->post('/register',function(Request $req,Response $res)
 		  $spaid=$requestedData['spaId'];
 		 $name=$requestedData['name'];
 		 $contact=$requestedData['contact'];
-		
 		 $date=$requestedData['date'];
 		 $db=new dbOperation();
 		 $responseData=array();
