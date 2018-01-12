@@ -69,17 +69,18 @@ $app->post('/register',function(Request $req,Response $res)
 	 }
  });
  $app->post('/bookVet',function(Request $req,Response $res){
-	 if(isTheseParametersAvailable(array('vetId','vetName','contact','name','date')))
+	 if(isTheseParametersAvailable(array('vetId','vetName','name','contact','date')))
 	 {
 		 $requestedData=$req->getParsedBody();
 		 $vetid=$requestedData['vetId'];
 		 $vetName=$requestedData['vetName'];
-		 $contact=$requestedData['contact'];
+		
 		 $name=$requestedData['name'];
+		  $contact=$requestedData['contact'];
 		 $date=$requestedData['date'];
 		 $db=new dbOperation();
 		 $responseData=array();
-		 $result=$db->bookVet($vetid,$vetName,$contact,$name,$date);
+		 $result=$db->bookVet($vetid,$vetName,$name,$contact,$date);
 		 if($result==true)
 		 {
 			 $responseData['error']=false;
