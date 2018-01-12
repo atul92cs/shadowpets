@@ -189,7 +189,7 @@
 	function enquireTrainer($trainerid,$name,$contact,$message)
 	{
 		$stmt=$this->con->prepare("INSERT INTO pet_enquiry(trainer_id,user_name,user_contact,user_message)VALUES(?,?,?,?)");
-		$stmt->bind_param($trainderId,$name,$contact,$message);
+		$stmt->bind_param("ssss",$trainderId,$name,$contact,$message);
 		if($stmt->execute())
 		    return true;
 		return false;
