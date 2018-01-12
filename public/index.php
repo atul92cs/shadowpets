@@ -144,17 +144,17 @@ $app->post('/register',function(Request $req,Response $res)
 	   }
  });
  $app->post('/enquirePet',function(Request $req,Response $res){
-	 if(isTheseParametersAvailable(array('title','message','name','contact','sellerId')))
+	 if(isTheseParametersAvailable(array('title','message','contact','name','sellerId')))
 	 {
 		 $requestedData=$req->getParsedBody();
 		 $title=$requestedData['title'];
-		 $message=$requestedData['message'];
-		 $name=$requestedData['name'];
+		 $message=$requestedData['message']; 
 		 $contact=$requestedData['contact'];
+		 $name=$requestedData['name'];
 		 $sellerid=$requestedData['sellerId'];
 		 $db = new dbOperation();
 		 $responseData=array();
-		 $result=$db->enquirePet($title,$message,$name,$contact,$sellerid);
+		 $result=$db->enquirePet($title,$message,$contact,$name,$sellerid);
 		 if($result==true)
 		 {
 			 $responseData['error']=false;
