@@ -104,7 +104,7 @@ $app->post('/register',function(Request $req,Response $res)
 		 $date=$requestedData['date'];
 		 $db=new dbOperation();
 		 $responseData=array();
-		 $result=$db->bookSpa($name,$contact,$spaid,$date);
+		 $result=$db->bookSpa($spaid,$name,$contact,$date);
 		 if($result==true)
 		 {
 			 $responseData['error']=false;
