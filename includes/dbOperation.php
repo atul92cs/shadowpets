@@ -171,7 +171,7 @@
 	}
 	function enquireDaycare($name,$contact,$id,$date)
 	{
-		$stmt=$this->con->prepare("INSERT INTO daycare_appointmnet(user_name,user_contact,daycare_id,booking_date)VALUES(?,?,?,?)");
+		$stmt=$this->con->prepare("INSERT INTO daycare_booking(user_name,user_contact,daycare_id,booking_date)VALUES(?,?,?,?)");
 		$stmt->bind_param("ssss",$name,$contact,$id,$date);
 		if($stmt->execute())
 			return true;
@@ -203,7 +203,7 @@
 		return false;
 		
 	}
-	function bookSpa($name,$contact,$spaId,$date)
+	function bookSpa($spaId,$name,$contact,$date)
 	{
 		$stmt=$this->con->prepare("INSERT INTO spa_appointment(spa_id,user_name,user_contact,booking_date)VALUES(?,?,?,?)");
 		$stmt->bind_param("ssss",$spaId,$name,$contact,$date);
