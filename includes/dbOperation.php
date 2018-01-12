@@ -194,10 +194,10 @@
 		    return true;
 		return false;
 	}
-	function bookVet($vetId,$contact,$name,$date)
+	function bookVet($vetId,$vetName,$contact,$name,$date)
 	{
-		$stmt=$this->con->prepare("INSERT INTO vet_appointment(vet_id,user_contact,user_name,booking_date)VALUES(?,?,?,?);");
-		$stmt->bind_param("ssss",$vetId,$contact,$name,$date);
+		$stmt=$this->con->prepare("INSERT INTO vet_appointment(vet_id,vet_name,user_contact,user_name,booking_date)VALUES(?,?,?,?,?);");
+		$stmt->bind_param("sssss",$vetId,$vetName,$contact,$name,$date);
 		if($stmt->execute())
 			return true;
 		return false;

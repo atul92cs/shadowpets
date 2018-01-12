@@ -69,7 +69,7 @@ $app->post('/register',function(Request $req,Response $res)
 	 }
  });
  $app->post('/bookVet',function(Request $req,Response $res){
-	 if(isTheseParametersAvailable(array('vetId','contact','name','date')))
+	 if(isTheseParametersAvailable(array('vetId','vetName','contact','name','date')))
 	 {
 		 $requestedData=$req->getParsedBody();
 		 $vetid=$requestedData['vetId'];
