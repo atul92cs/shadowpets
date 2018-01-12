@@ -186,10 +186,10 @@
 			return true;
 		return false;
 	}
-	function enquireTrainer($trainerid,$name,$contact,$message)
+	function enquireTrainer($name,$contact,$trainerid,$message)
 	{
-		$stmt=$this->con->prepare("INSERT INTO pet_enquiry(trainer_id,user_name,user_contact,user_message)VALUES(?,?,?,?)");
-		$stmt->bind_param("ssss",$trainderId,$name,$contact,$message);
+		$stmt=$this->con->prepare("INSERT INTO trainer_enquiry(user_name,user_contact,trainer_id,user_message)VALUES(?,?,?,?)");
+		$stmt->bind_param("ssss",$name,$contact,$trainerid,$message);
 		if($stmt->execute())
 		    return true;
 		return false;
