@@ -196,7 +196,7 @@
 	}
 	function bookVet($vetId,$contact,$name,$date)
 	{
-		$stmt=$this->con->prepare("INSERT INTO vet_appointment(vet_id,user_contact,user_name,booking_date)VALUES(?,?,?,?)");
+		$stmt=$this->con->prepare("INSERT INTO vet_appointment(vet_id,user_contact,user_name,booking_date)VALUES(?,?,?,?);");
 		$stmt->bind_param("ssss",$vetId,$contact,$name,$date);
 		if($stmt->execute())
 			return true;
