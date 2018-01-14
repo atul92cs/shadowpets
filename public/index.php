@@ -207,7 +207,7 @@ $app->post('/register',function(Request $req,Response $res)
 	 $order_id=$db->getPeorder($contact);
 	 $res->getBody()->write(json_encode($order_id));
  });
- $app->get('/spaOrder/{contact}',function(Request $res,Response $res){
+ $app->get('/spaOrder/{contact}',function(Request $req,Response $res){
 	 $contact=$req->getAttribute('contact');
 	 $db=new dbOperation();
 	 $order_id=$db->getSaorder($contact);
