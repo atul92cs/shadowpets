@@ -270,7 +270,7 @@
 	}
 	function getvbOrder($contact)
 	{
-		$stmt=$this->con->prepare("SELECT FROM MAX(booking_id) FROM vet_booking WHERE user_contact=?");
+		$stmt=$this->con->prepare("SELECT MAX(booking_id) FROM vet_booking WHERE user_contact=?");
 		$stmt->bind_param("s",$contact);
 		$stmt->execute();
 		$stmt->bind_result($id);
