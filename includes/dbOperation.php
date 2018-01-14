@@ -227,5 +227,56 @@
 		}
 		
 	}
+	function getDcOrder($contact)
+	{
+		$stmt=$this->con->prepare("SELECT MAX(daycare_enquiry_id) FROM daycare_booking WHERE user_contact =?");
+		$stmt->bind_param("s",$contact);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$order['id']=$id;
+		return $order;
+	}
+	
+	function getPeorder($contact)
+	{
+		$stmt=$this->con->prepare("SELECT MAX(enquiry_id) FROM pet_enquiry WHERE user_contact =?");
+		$stmt->bind_param("s",$contact);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$order['id']=$id;
+		return $order;
+	}
+	function getSaorder($contact)
+	{
+		$stmt=$this->con->prepare("SELECT MAX(booking_id) FROM spa_appointment WHERE user_contact=?");
+		$stmt->bind_param("s",$contact);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$order['id']=$id;
+		return $order;
+	}
+	function getteOrder($contact)
+	{
+		$stmt=$this->con->prepare("SELECT MAX(enquiry_id) FROM trainer_enquiry WHERE user_contact =?");
+		$stmt->bind_param("s",$contact);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$order['id']=$id;
+		return $order;
+	}
+	function getvbOrder($contact)
+	{
+		$stmt=$this->con->prepare("SELECT FROM MAX(booking_id) FROM vet_booking WHERE user_contact=?");
+		$stmt->bind_param("s",$contact);
+		$stmt->execute();
+		$stmt->bind_result($id);
+		$stmt->fetch();
+		$order['id']=$id;
+		return $order;
+	}
   }
 ?>
