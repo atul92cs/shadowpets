@@ -195,6 +195,36 @@ $app->post('/register',function(Request $req,Response $res)
 	 }
 	 
  });
+ $app->get('/dayCareOrder/{contact}',function(Request $req,Response $res){
+	       $contact =$req->getAttribute('contact');
+		   $db=new dbOperation();
+		   $order_id=$db->getDcOrder($contact);
+		   $res->getBody()->write(json_encode($order_id));
+ });
+ $app->get('/petEnqOrder/{contact}',function(Request $req,Response $res){
+	 $contact=$req->getAttribute('contact');
+	 $db=new dbOperation();
+	 $order_id=$db->getPeorder($contact);
+	 $res->getBody()->write(json_encode($order_id));
+ });
+ $app->get('/spaOrder/{contact}',function(Request $res,Response $res){
+	 $contact=$req->getAttribute('contact');
+	 $db=new dbOperation();
+	 $order_id=$db->getSaorder($contact);
+	 $res->getBody()->write(json_encode($order_id));
+ });
+ $app->get('/trainEqOrder/{contact}',function(Request $req,Response $res){
+	 $contact=$req->getAttribute('contact');
+	 $db=new dbOperation();
+	 $order_id=$db->getteOrder($contact);
+	 $res->getBody()->write(json_encode($order_id));
+ });
+ $app->get('/vetBkOrder/{contact}',function(Request $req,Response $res){
+	 $contact=$req->getAttribute('contact');
+	 $db=new dbOperation();
+	 $order_id=$db->getvbOrder($contact);
+	 $res->getBody()->write(json_encode($order_id));
+ });
  $app->get('/products',function(Request $req,Response $res){
 	 $db=new dbOperation();
 	 $products=$db->getProducts();
